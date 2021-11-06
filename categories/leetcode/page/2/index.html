@@ -1,4 +1,4 @@
-<!doctype html><html lang=en data-figures>
+<!doctype html><html lang=en data-figures data-mode=dim>
 <head>
 <title>leetcode | My New Hugo Site</title>
 <meta charset=utf-8>
@@ -23,7 +23,7 @@
 <link rel=preload href=http://blog.evance.tw/js/bundle.min.617c4c3549a10c9fe7e1bb91e87f0722f6a285b59e742c7123c755df9fb33530bae76060ebd303966dd0e1c09813e679f8042802b7fd059315ef1345f0429ad2.js as=script integrity="sha512-YXxMNUmhDJ/n4buR6H8HIvaihbWedCxxI8dV35+zNTC652Bg69MDlm3Q4cCYE+Z5+AQoArf9BZMV7xNF8EKa0g==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=http://blog.evance.tw/css/styles.44fa81034ff7ea86cc966ac19f3832410f69e9e3d934b6314f12db45aa441d85959a242feb02ce9c112be4b1d4df423eaccb9633ecba2c6204dda4cb4901fc55.css integrity="sha512-RPqBA0/36obMlmrBnzgyQQ9p6ePZNLYxTxLbRapEHYWVmiQv6wLOnBEr5LHU30I+rMuWM+y6LGIE3aTLSQH8VQ==" crossorigin=anonymous>
 </head>
-<body data-code=100 data-lines=false id=documentTop>
+<body data-code=10 data-lines=true id=documentTop>
 <header class=nav_header>
 <nav class=nav><a href=http://blog.evance.tw/ class="nav_brand nav_item" title="My New Hugo Site">My New Hugo Site
 <div class=nav_close>
@@ -268,6 +268,9 @@ See Problem Submission Detail Submitted: 2019/09/13 Detail URL: https://leetcode
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
 <li>
+<a href=http://blog.evance.tw/posts/about-creating-a-new-post-with-hugo/ class=nav-link title="About Creating a New Post With Hugo">About Creating a New Post With Hugo</a>
+</li>
+<li>
 <a href=http://blog.evance.tw/leetcode/0058-length-of-last-word/ class=nav-link title="0058 Length of Last Word">0058 Length of Last Word</a>
 </li>
 <li>
@@ -288,9 +291,6 @@ See Problem Submission Detail Submitted: 2019/09/13 Detail URL: https://leetcode
 <li>
 <a href=http://blog.evance.tw/leetcode/0026-remove-duplicates-from-sorted-array/ class=nav-link title="0026 Remove Duplicates From Sorted Array">0026 Remove Duplicates From Sorted Array</a>
 </li>
-<li>
-<a href=http://blog.evance.tw/leetcode/0021-merge-two-sorted-lists/ class=nav-link title="0021 Merge Two Sorted Lists">0021 Merge Two Sorted Lists</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=categories-section>Categories</h2>
@@ -298,6 +298,10 @@ See Problem Submission Detail Submitted: 2019/09/13 Detail URL: https://leetcode
 <a href=http://blog.evance.tw/categories/leetcode/ class="post_tag button button_translucent" title=leetcode>
 LEETCODE
 <span class=button_tally>15</span>
+</a>
+<a href=http://blog.evance.tw/categories/%E7%B5%A6%E5%80%8B%E5%88%86%E9%A1%9E/ class="post_tag button button_translucent" title=給個分類>
+給個分類
+<span class=button_tally>1</span>
 </a>
 </nav>
 </div>
@@ -316,42 +320,43 @@ LEETCODE-STRING
 LEETCODE-ARRAY
 <span class=button_tally>5</span>
 </a>
-<a href=http://blog.evance.tw/tags/leetcode-math/ class="post_tag button button_translucent" title=leetcode-math>
-LEETCODE-MATH
-<span class=button_tally>4</span>
+<br>
+<div class="post_tags_toggle button">All Tags</div>
+<div class=post_tags>
+<div class=tags_list>
+<a href=http://blog.evance.tw/tags/leetcode-array/ class="post_tag button button_translucent" data-position=5 title=leetcode-array>LEETCODE-ARRAY<span class=button_tally>5</span>
 </a>
-<a href=http://blog.evance.tw/tags/leetcode-two-pointers/ class="post_tag button button_translucent" title=leetcode-two-pointers>
-LEETCODE-TWO-POINTERS
-<span class=button_tally>3</span>
+<a href=http://blog.evance.tw/tags/leetcode-binary-search/ class="post_tag button button_translucent" data-position=1 title=leetcode-binary-search>LEETCODE-BINARY-SEARCH<span class=button_tally>1</span>
 </a>
-<a href=http://blog.evance.tw/tags/leetcode-linked-list/ class="post_tag button button_translucent" title=leetcode-linked-list>
-LEETCODE-LINKED-LIST
-<span class=button_tally>2</span>
+<a href=http://blog.evance.tw/tags/leetcode-divide-and-conquer/ class="post_tag button button_translucent" data-position=1 title=leetcode-divide-and-conquer>LEETCODE-DIVIDE-AND-CONQUER<span class=button_tally>1</span>
 </a>
-<a href=http://blog.evance.tw/tags/leetcode-binary-search/ class="post_tag button button_translucent" title=leetcode-binary-search>
-LEETCODE-BINARY-SEARCH
-<span class=button_tally>1</span>
+<a href=http://blog.evance.tw/tags/leetcode-dynamic-programming/ class="post_tag button button_translucent" data-position=1 title=leetcode-dynamic-programming>LEETCODE-DYNAMIC-PROGRAMMING<span class=button_tally>1</span>
 </a>
-<a href=http://blog.evance.tw/tags/leetcode-divide-and-conquer/ class="post_tag button button_translucent" title=leetcode-divide-and-conquer>
-LEETCODE-DIVIDE-AND-CONQUER
-<span class=button_tally>1</span>
+<a href=http://blog.evance.tw/tags/leetcode-easy/ class="post_tag button button_translucent" data-position=14 title=leetcode-easy>LEETCODE-EASY<span class=button_tally>14</span>
 </a>
-<a href=http://blog.evance.tw/tags/leetcode-dynamic-programming/ class="post_tag button button_translucent" title=leetcode-dynamic-programming>
-LEETCODE-DYNAMIC-PROGRAMMING
-<span class=button_tally>1</span>
+<a href=http://blog.evance.tw/tags/leetcode-hash-table/ class="post_tag button button_translucent" data-position=1 title=leetcode-hash-table>LEETCODE-HASH-TABLE<span class=button_tally>1</span>
 </a>
-<a href=http://blog.evance.tw/tags/leetcode-hash-table/ class="post_tag button button_translucent" title=leetcode-hash-table>
-LEETCODE-HASH-TABLE
-<span class=button_tally>1</span>
+<a href=http://blog.evance.tw/tags/leetcode-linked-list/ class="post_tag button button_translucent" data-position=2 title=leetcode-linked-list>LEETCODE-LINKED-LIST<span class=button_tally>2</span>
 </a>
-<a href=http://blog.evance.tw/tags/leetcode-medium/ class="post_tag button button_translucent" title=leetcode-medium>
-LEETCODE-MEDIUM
-<span class=button_tally>1</span>
+<a href=http://blog.evance.tw/tags/leetcode-math/ class="post_tag button button_translucent" data-position=4 title=leetcode-math>LEETCODE-MATH<span class=button_tally>4</span>
 </a>
-<a href=http://blog.evance.tw/tags/leetcode-stack/ class="post_tag button button_translucent" title=leetcode-stack>
-LEETCODE-STACK
-<span class=button_tally>1</span>
+<a href=http://blog.evance.tw/tags/leetcode-medium/ class="post_tag button button_translucent" data-position=1 title=leetcode-medium>LEETCODE-MEDIUM<span class=button_tally>1</span>
 </a>
+<a href=http://blog.evance.tw/tags/leetcode-stack/ class="post_tag button button_translucent" data-position=1 title=leetcode-stack>LEETCODE-STACK<span class=button_tally>1</span>
+</a>
+<a href=http://blog.evance.tw/tags/leetcode-string/ class="post_tag button button_translucent" data-position=6 title=leetcode-string>LEETCODE-STRING<span class=button_tally>6</span>
+</a>
+<a href=http://blog.evance.tw/tags/leetcode-two-pointers/ class="post_tag button button_translucent" data-position=3 title=leetcode-two-pointers>LEETCODE-TWO-POINTERS<span class=button_tally>3</span>
+</a>
+<a href=http://blog.evance.tw/tags/%E7%B5%A6%E5%80%8B-tag-1/ class="post_tag button button_translucent" data-position=1 title=給個-tag-1>給個-TAG-1<span class=button_tally>1</span>
+</a>
+<a href=http://blog.evance.tw/tags/%E7%B5%A6%E5%80%8B-tag-2/ class="post_tag button button_translucent" data-position=1 title=給個-tag-2>給個-TAG-2<span class=button_tally>1</span>
+</a>
+<div class=tags_sort><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
+</div>
+<span class=tags_hide><svg class="icon"><use xlink:href="#closeme"/></svg></span>
+</div>
+</div>
 </nav>
 </div>
 </section>
