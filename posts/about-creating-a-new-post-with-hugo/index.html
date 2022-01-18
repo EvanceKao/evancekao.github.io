@@ -70,6 +70,7 @@ Share on:
 <li><a href=#這篇文章是怎麼產生的呢>這篇文章是怎麼產生的呢?</a></li>
 <li><a href=#檔案內容是怎麼來的>檔案內容是怎麼來的?</a></li>
 <li><a href=#怎麼在本機預覽這篇文章在-hugo-上會如何呈現呢>怎麼在本機預覽這篇文章在 hugo 上會如何呈現呢?</a></li>
+<li><a href=#重新載了-hugo-blog-source-code-後該如何還原-theme-呢>重新載了 hugo blog source code 後，該如何還原 theme 呢？</a></li>
 </ul>
 </nav>
 <h2 id=這篇文章是怎麼產生的呢>這篇文章是怎麼產生的呢?</h2>
@@ -93,7 +94,14 @@ draft: true
 <h2 id=怎麼在本機預覽這篇文章在-hugo-上會如何呈現呢>怎麼在本機預覽這篇文章在 hugo 上會如何呈現呢?</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>hugo server -D
 </code></pre></div><p><code>-D</code> 代表可以在 hugo 上瀏覽 <code>draft: true</code> 的文章</p>
-<div id=disqus_thread></div>
+<h2 id=重新載了-hugo-blog-source-code-後該如何還原-theme-呢>重新載了 hugo blog source code 後，該如何還原 theme 呢？</h2>
+<p>在本機開發時， <code>hugo server -D</code> 起來後卻是白畫面ＱＱ</p>
+<p>看起來是沒做 theme 的還原</p>
+<p>先前是透過 <code>git submodule add https://github.com/chipzoller/hugo-clarity themes/hugo-clarity</code> 這個方式來安裝 theme</p>
+<p>安裝後，你可以查看 .gitmodules 這份檔案，裡頭會紀錄你載過的 submodule</p>
+<p>還原、更新 submodule 的語法如下：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>git submodule update
+</code></pre></div><div id=disqus_thread></div>
 <script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//evancekao.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
 <noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
 <a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>

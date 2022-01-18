@@ -19,7 +19,15 @@ draft: true
 &lt;/ol>
 &lt;h2 id="怎麼在本機預覽這篇文章在-hugo-上會如何呈現呢">怎麼在本機預覽這篇文章在 hugo 上會如何呈現呢?&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hugo server -D
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>-D&lt;/code> 代表可以在 hugo 上瀏覽 &lt;code>draft: true&lt;/code> 的文章&lt;/p></description></item><item><title>0058 Length of Last Word</title><link>http://blog.evance.tw/leetcode/0058-length-of-last-word/</link><pubDate>Mon, 23 Sep 2019 00:00:00 +0800</pubDate><guid>http://blog.evance.tw/leetcode/0058-length-of-last-word/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>-D&lt;/code> 代表可以在 hugo 上瀏覽 &lt;code>draft: true&lt;/code> 的文章&lt;/p>
+&lt;h2 id="重新載了-hugo-blog-source-code-後該如何還原-theme-呢">重新載了 hugo blog source code 後，該如何還原 theme 呢？&lt;/h2>
+&lt;p>在本機開發時， &lt;code>hugo server -D&lt;/code> 起來後卻是白畫面ＱＱ&lt;/p>
+&lt;p>看起來是沒做 theme 的還原&lt;/p>
+&lt;p>先前是透過 &lt;code>git submodule add https://github.com/chipzoller/hugo-clarity themes/hugo-clarity&lt;/code> 這個方式來安裝 theme&lt;/p>
+&lt;p>安裝後，你可以查看 .gitmodules 這份檔案，裡頭會紀錄你載過的 submodule&lt;/p>
+&lt;p>還原、更新 submodule 的語法如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git submodule update
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>0058 Length of Last Word</title><link>http://blog.evance.tw/leetcode/0058-length-of-last-word/</link><pubDate>Mon, 23 Sep 2019 00:00:00 +0800</pubDate><guid>http://blog.evance.tw/leetcode/0058-length-of-last-word/</guid><description>
 &lt;p>&lt;a href="https://leetcode.com/problems/length-of-last-word/">See Problem&lt;/a>&lt;/p>
 &lt;h2 id="submission-detail">Submission Detail&lt;/h2>
 &lt;p>Submitted: 2019/09/23&lt;/p>
