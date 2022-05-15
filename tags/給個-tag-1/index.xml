@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>給個 tag 1 on My New Hugo Site</title><link>http://blog.evance.tw/tags/%E7%B5%A6%E5%80%8B-tag-1/</link><description>Recent content in 給個 tag 1 on My New Hugo Site</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Wed, 05 Jan 2022 11:10:48 +0800</lastBuildDate><atom:link href="http://blog.evance.tw/tags/%E7%B5%A6%E5%80%8B-tag-1/index.xml" rel="self" type="application/rss+xml"/><item><title>Code Server 101</title><link>http://blog.evance.tw/posts/code-server-101/</link><pubDate>Wed, 05 Jan 2022 11:10:48 +0800</pubDate><guid>http://blog.evance.tw/posts/code-server-101/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>給個 tag 1 on My New Hugo Site</title><link>http://blog.evance.tw/tags/%E7%B5%A6%E5%80%8B-tag-1/</link><description>Recent content in 給個 tag 1 on My New Hugo Site</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Thu, 06 Jan 2022 22:48:30 +0800</lastBuildDate><atom:link href="http://blog.evance.tw/tags/%E7%B5%A6%E5%80%8B-tag-1/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello My Macbook Pro</title><link>http://blog.evance.tw/posts/hello-my-macbook-pro/</link><pubDate>Thu, 06 Jan 2022 22:48:30 +0800</pubDate><guid>http://blog.evance.tw/posts/hello-my-macbook-pro/</guid><description>
+&lt;h1 id="macbook">Macbook&lt;/h1>
+&lt;h2 id="shortcut">shortcut&lt;/h2>
+&lt;h3 id="common">common&lt;/h3>
+&lt;p>大多數 app 通用，但還是要看 app 有沒有支援。&lt;/p>
+&lt;ol>
+&lt;li>command + t: new window&lt;/li>
+&lt;li>command + w: close window&lt;/li>
+&lt;li>command + q: exit process&lt;/li>
+&lt;li>command + tab: change current window&lt;/li>
+&lt;/ol>
+&lt;h3 id="screen">screen&lt;/h3>
+&lt;ol>
+&lt;li>command + shift + 3: full screen&lt;/li>
+&lt;li>command + shift + 4: custom mode
+&lt;ol>
+&lt;li>(in custom mode) space: specific window&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="homebrew">Homebrew&lt;/h2>
+&lt;p>&lt;a href="https://brew.sh/index_zh-tw">https://brew.sh/index_zh-tw&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">/bin/bash -c &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="wget">wget&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install wget
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="tree">tree&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">brew install tree
+&lt;span style="color:#75715e"># 解決中文亂碼&lt;/span>
+tree -N
+&lt;span style="color:#75715e"># 印出特定層數&lt;/span>
+tree -L &lt;span style="color:#ae81ff">3&lt;/span>
+&lt;span style="color:#75715e"># 輸出 JSON - Prints out an JSON representation of the tree.&lt;/span>
+tree -J
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="visual-studio-code">Visual Studio Code&lt;/h2>
+&lt;ol>
+&lt;li>command + k, then m: select language mode&lt;/li>
+&lt;/ol>
+&lt;h3 id="editer">editer&lt;/h3>
+&lt;ol>
+&lt;li>fn/(control + command + space): 顯示表情符號與其他符號&lt;/li>
+&lt;li>（注）shift + option + b: 顯示標點符號選單&lt;/li>
+&lt;li>（Ａ）shift + option + 英文字母: 輸入相對應的符號&lt;/li>
+&lt;li>option + ←/→: 將游標往前/後跳一個詞&lt;/li>
+&lt;li>（vs code）option + ↑/↓: 將當前行往上/下移動&lt;/li>
+&lt;li>command + option + shift + ↑/↓: 將輸入游標往上/下延伸&lt;/li>
+&lt;/ol>
+&lt;h2 id="建置開發環境">建置開發環境&lt;/h2>
+&lt;p>我的原始碼該放在哪裡呢？先來看看家目錄 &lt;code>~&lt;/code> 底下有什麼&lt;/p>
+&lt;p>&lt;img src="http://blog.evance.tw/images/hello-my-macbook-pro/2022-01-19-02-08-02.png" alt="ImageDescription">&lt;/p>
+&lt;p>家目錄底下看起來沒有適合擺放原始碼的目錄，於是我估狗了一下（搜尋： &lt;code>mac development folder&lt;/code>）&lt;/p>
+&lt;p>發現似乎在某個版本以前的 macOS ，家目錄下預設就會有 &lt;code>Developer&lt;/code> 這個資料夾，不過我的 macbook (macOS Monterey) 的家目錄底下就已經沒有這個資料夾了。&lt;/p>
+&lt;p>在 Windows OS 底下由於路徑長度的問題，我通常會將原始碼放在 &lt;code>c:\p&lt;/code> （&lt;code>p&lt;/code> 代表 project）底下，反而失去了使用者目錄 &lt;code>%USERPROFILE%&lt;/code> 的美意。（沒辦法啊 Windows 你就要用路徑長度來搞我）&lt;/p>
+&lt;p>找到這篇文章，覺得作者建議的還不錯，他在家目錄下開了 &lt;code>dev&lt;/code> 這個資料夾，而在 Windows OS 也可以用同樣的邏輯，建立 &lt;code>c:\dev&lt;/code> 這個目錄。
+&lt;a href="https://dev.to/httpjunkie/my-development-directory-structure-3p1g">https://dev.to/httpjunkie/my-development-directory-structure-3p1g&lt;/a>&lt;/p>
+&lt;p>!!! info
+在 linux 底下， &lt;code>/dev&lt;/code> 這個目錄代表的是 device 。&lt;/p>
+&lt;p>建立開發目錄的語法如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">cd ~
+mkdir -p dev/src/&lt;span style="color:#f92672">{&lt;/span>local,github&lt;span style="color:#f92672">}&lt;/span>
+cd dev &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> tree -L &lt;span style="color:#ae81ff">3&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>tree -L 3&lt;/code> 的 output:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">.
+└── src
+├── github
+└── local
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="dotnet-60-sdk">dotnet 6.0 SDK&lt;/h2>
+&lt;p>m1 = arm64 架構&lt;/p>
+&lt;p>&lt;a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">下載 .NET Core&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>macOS x Installers: Arm64&lt;/li>
+&lt;li>All: dotnet-install scripts&lt;/li>
+&lt;/ol>
+&lt;h2 id="nvm--nodejs--yarn">nvm &amp;amp; node.js &amp;amp; yarn&lt;/h2>
+&lt;h3 id="nvm">nvm&lt;/h3>
+&lt;p>&lt;a href="https://github.com/nvm-sh/nvm#install--update-script">https://github.com/nvm-sh/nvm#install--update-script&lt;/a>&lt;/p>
+&lt;p>開啟 terminal&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">cd ~
+mkdir tmp
+cd tmp
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>安裝完 nvm 後，執行下面的指令，設定 PATH&lt;/p>
+&lt;pre>&lt;code>export NVM_DIR=&amp;quot;$HOME/.nvm&amp;quot;
+[ -s &amp;quot;$NVM_DIR/nvm.sh&amp;quot; ] &amp;amp;&amp;amp; \. &amp;quot;$NVM_DIR/nvm.sh&amp;quot; # This loads nvm
+&lt;/code>&lt;/pre>&lt;p>確認 nvm 是否安裝成功&lt;/p>
+&lt;pre>&lt;code>nvm -v
+&lt;/code>&lt;/pre>&lt;h3 id="nodejs-12">node.js 12&lt;/h3>
+&lt;p>透過 nvm 安裝 node.js 12&lt;/p>
+&lt;pre>&lt;code>nvm install 12
+&lt;/code>&lt;/pre>&lt;p>確認安裝是否成功&lt;/p>
+&lt;pre>&lt;code>node -v
+npm -v
+&lt;/code>&lt;/pre>&lt;h3 id="安裝-yarn">安裝 yarn&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">npm i -g yarn &lt;span style="color:#75715e">#if yarn isn&amp;#39;t installed&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Code Server 101</title><link>http://blog.evance.tw/posts/code-server-101/</link><pubDate>Wed, 05 Jan 2022 11:10:48 +0800</pubDate><guid>http://blog.evance.tw/posts/code-server-101/</guid><description>
 &lt;p>版本&lt;/p>
 &lt;ul>
 &lt;li>OS: ubuntu&lt;/li>
