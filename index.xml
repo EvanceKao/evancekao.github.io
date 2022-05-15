@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My New Hugo Site</title><link>http://blog.evance.tw/</link><description>Recent content on My New Hugo Site</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sun, 07 Nov 2021 01:05:32 +0800</lastBuildDate><atom:link href="http://blog.evance.tw/index.xml" rel="self" type="application/rss+xml"/><item><title>About Creating a New Post With Hugo</title><link>http://blog.evance.tw/posts/about-creating-a-new-post-with-hugo/</link><pubDate>Sun, 07 Nov 2021 01:05:32 +0800</pubDate><guid>http://blog.evance.tw/posts/about-creating-a-new-post-with-hugo/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My New Hugo Site</title><link>http://blog.evance.tw/</link><description>Recent content on My New Hugo Site</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Wed, 05 Jan 2022 11:10:48 +0800</lastBuildDate><atom:link href="http://blog.evance.tw/index.xml" rel="self" type="application/rss+xml"/><item><title>Code Server 101</title><link>http://blog.evance.tw/posts/code-server-101/</link><pubDate>Wed, 05 Jan 2022 11:10:48 +0800</pubDate><guid>http://blog.evance.tw/posts/code-server-101/</guid><description>
+&lt;p>版本&lt;/p>
+&lt;ul>
+&lt;li>OS: ubuntu&lt;/li>
+&lt;li>docker: 20.10.7&lt;/li>
+&lt;li>Code Server: 3.12.0&lt;/li>
+&lt;/ul>
+&lt;p>前置作業&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">cd ~
+mkdir -p code-server/.config
+mkdir -p code-server/project
+cd code-server
+touch docker-compose.yml
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>docker-compose.yml 的內容&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#f92672">version&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2.1&amp;#34;&lt;/span>
+&lt;span style="color:#f92672">services&lt;/span>:
+&lt;span style="color:#f92672">code-server&lt;/span>:
+&lt;span style="color:#f92672">image&lt;/span>: &lt;span style="color:#ae81ff">codercom/code-server:3.12.0&lt;/span>
+&lt;span style="color:#f92672">container_name&lt;/span>: &lt;span style="color:#ae81ff">code-server&lt;/span>
+&lt;span style="color:#f92672">user&lt;/span>: &lt;span style="color:#ae81ff">root&lt;/span>
+&lt;span style="color:#f92672">environment&lt;/span>:
+- &lt;span style="color:#ae81ff">DOCKER_USER=root&lt;/span>
+&lt;span style="color:#f92672">volumes&lt;/span>:
+&lt;span style="color:#75715e"># 2022-01-05: 直接抄官方 docker hub 的範例，無法將 config.yml volume 出來；下面的路徑是調整過的。&lt;/span>
+- &lt;span style="color:#ae81ff">~/code-server/.config:/root/.config/code-server&lt;/span>
+- &lt;span style="color:#ae81ff">~/code-server/project:/home/coder/project&lt;/span>
+&lt;span style="color:#f92672">ports&lt;/span>:
+- &lt;span style="color:#ae81ff">8080&lt;/span>:&lt;span style="color:#ae81ff">8080&lt;/span>
+&lt;span style="color:#f92672">restart&lt;/span>: &lt;span style="color:#ae81ff">unless-stopped&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>啟動&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">docker-compose up -d
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>About Creating a New Post With Hugo</title><link>http://blog.evance.tw/posts/about-creating-a-new-post-with-hugo/</link><pubDate>Sun, 07 Nov 2021 01:05:32 +0800</pubDate><guid>http://blog.evance.tw/posts/about-creating-a-new-post-with-hugo/</guid><description>
 &lt;h2 id="這篇文章是怎麼產生的呢">這篇文章是怎麼產生的呢?&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">hugo new posts/about-creating-a-new-post-with-hugo.md
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>這篇文章所在的實體路徑為 &lt;code>~/content/posts/about-creating-a-new-post-with-hugo.md&lt;/code>&lt;/p>
