@@ -134,7 +134,7 @@ draft: true
 ---
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="檔案內容是怎麼來的">檔案內容是怎麼來的?&lt;/h2>
 &lt;p>archetypes\default.md&lt;/p>
-&lt;p>怎麼判斷要用這份的? &lt;a href="https://gohugo.io/content-management/archetypes/">QQ&lt;/a>&lt;/p>
+&lt;p>怎麼判斷要用這份的? &lt;a href="https://gohugo.io/content-management/archetypes/">link&lt;/a>&lt;/p>
 &lt;ol>
 &lt;li>archetypes/posts.md&lt;/li>
 &lt;li>archetypes/default.md&lt;/li>
