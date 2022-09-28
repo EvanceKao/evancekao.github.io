@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on My New Hugo Site</title><link>http://blog.evance.tw/posts/</link><description>Recent content in Posts on My New Hugo Site</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Thu, 06 Jan 2022 22:48:30 +0800</lastBuildDate><atom:link href="http://blog.evance.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello My Macbook Pro</title><link>http://blog.evance.tw/posts/hello-my-macbook-pro/</link><pubDate>Thu, 06 Jan 2022 22:48:30 +0800</pubDate><guid>http://blog.evance.tw/posts/hello-my-macbook-pro/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on My New Hugo Site</title><link>http://blog.evance.tw/posts/</link><description>Recent content in Posts on My New Hugo Site</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Thu, 29 Sep 2022 00:26:59 +0800</lastBuildDate><atom:link href="http://blog.evance.tw/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Unifi Udr Loss Apps After Reformat Sd Card</title><link>http://blog.evance.tw/posts/2022/09/unifi-udr-loss-apps-after-reformat-sd-card/</link><pubDate>Thu, 29 Sep 2022 00:26:59 +0800</pubDate><guid>http://blog.evance.tw/posts/2022/09/unifi-udr-loss-apps-after-reformat-sd-card/</guid><description>
+&lt;h2 id="versions">versions&lt;/h2>
+&lt;ul>
+&lt;li>UniFi OS UDR 2.5.11&lt;/li>
+&lt;li>UniFi Network 7.2.94&lt;/li>
+&lt;li>UniFi Protect 2.2.2&lt;/li>
+&lt;/ul>
+&lt;h2 id="context">context&lt;/h2>
+&lt;p>由於 UDR 必須要安裝 SD 卡才能讓監視器隨時都錄影，買了張增你強&lt;del>的股票&lt;/del>代理的 SanDisk Extreme microSDXC card 256 GB，求的是代理商提供的終身保固。&lt;/p>
+&lt;p>好不容易把 UDR 隨附的 SD 卡槽卸除工具從儲物間中翻出來，很輕鬆的卸除卡槽，但安裝 SD 卡時又遇到問題，卡片沒辦法整個平貼進卡槽，我也不敢太大力硬塞 SD 卡，擔心一個粗魯就讓終身保固掰了；最後是找到一個角度可以讓 SD 卡卡進卡槽 (會有ㄎㄚ一聲，請放心不是我的卡片斷掉)，成功將 SD 卡安裝進 UDR。&lt;/p>
+&lt;p>安裝後 reboot 了 UDR (安裝文件沒特別說要 reboot)，之後想說來 format 一下 SD 卡好了，沒想到就帶來一連串的問題&amp;hellip;Orz&lt;/p>
+&lt;h2 id="situation">situation&lt;/h2>
+&lt;p>reboot 後，我是透過 iOS 的 Unifi Network app 來操作 console，進入方式為 Settings -&amp;gt; Console，接著會開啟內嵌瀏覽器，瀏覽器會打開 Console Management 的頁面。&lt;/p>
+&lt;p>打開 Console Management 左邊的漢堡，進入 Storage 頁面後就可以看到 &lt;code>Reformat SD Card&lt;/code>，按下去後會有確認視窗，確定要刪除後，視窗還會到數 10 秒讓你有機會反悔。&lt;/p>
+&lt;p>format 後，Network app 開始有異常的 reload 且無法正常操作，開啟 Protect app 也無法正常使用，找不到 Console，重新 scan 也無法正常找到 UDR。&lt;/p>
+&lt;p>接著透過電腦連線至區網內的 Unifi Console，在 Updates 頁面發現 Network 跟 Protect 一直是 &lt;code>Stopped&lt;/code> 的狀態，點了 &lt;code>Start&lt;/code> 的按鈕也無效，app 無法正常啟動；嘗試透過網址訪問 Network app 也失敗。&lt;/p>
+&lt;p>後來逛到 Storage 頁面，才發現 &lt;code>Reformat SD Card&lt;/code> 左邊的 &lt;code>Reformat Storage&lt;/code> 有個提示，游標 hover 上去會跳出對話框，內容是 &amp;ldquo;Reformatting will delete all data stored on this console&amp;rsquo;s hard disk drive(s).&amp;quot;，這時才驚覺，&lt;code>Reformat SD Card&lt;/code> 該不會是連同 UDR 內建 SSD 的資料一起砍了吧&amp;hellip;&lt;/p>
+&lt;p>&lt;img src="http://blog.evance.tw/images/unifi-udr-loss-apps-after-reformat-sd-card/2022-09-29-01-44-04.png" alt="坑人的提示">&lt;/p>
+&lt;h2 id="solution">solution&lt;/h2>
+&lt;p>假設上面的推論是對的，那麼要修復的方向就是：&lt;/p>
+&lt;ol>
+&lt;li>Unifi Console 格式化硬碟後，Network 不能正常啟動，淦！&lt;/li>
+&lt;li>Unifi Console 格式化硬碟後，Protect 不能正常啟動，淦！&lt;/li>
+&lt;/ol>
+&lt;h3 id="unifi-console-格式化硬碟後network-不能正常啟動淦">Unifi Console 格式化硬碟後，Network 不能正常啟動，淦！&lt;/h3>
+&lt;p>餵狗的關鍵字：&lt;code>unifi Network stopped&lt;/code>&lt;/p>
+&lt;p>找到這則問題 &lt;a href="https://community.ui.com/questions/UniFi-Network-application-keeps-starting-and-stopping-cant-access-network-controls/fe0a201f-a01e-4684-9d29-0403724b17e7">UniFi &amp;ldquo;Network&amp;rdquo; application keeps starting &amp;amp; stopping - can&amp;rsquo;t access network controls&lt;/a>&lt;/p>
+&lt;p>解法之一是開啟 Console 的 SSH 並連進去修復，就先試看看這招。&lt;/p>
+&lt;h4 id="支線透過-ssh-進入-udr">支線：透過 SSH 進入 UDR&lt;/h4>
+&lt;p>回到 Console Management，在 System 頁面的 Console Controls 區塊中，啟用 SSH 並設定密碼，請寄好這組密碼，等下會用到。&lt;/p>
+&lt;p>在終端機透過 SSH client [1] 連線至 UDR，指令是 &lt;code>ssh root@${Unifi Console 的 IP}&lt;/code>，假如你的 Unifi Console 的 IP 是 &lt;code>192.168.168.1&lt;/code>，那就輸入 &lt;code>ssh root@192.168.168.1&lt;/code>。&lt;/p>
+&lt;p>如果有正常連線的話，終端機會提示你輸入密碼，請輸入先前在 Console Controls 啟用 SSH 時所設定的密碼，密碼正確的話應該會出現下面的訊息：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">Linux Dream-Router 4.4.198-ui-mtk &lt;span style="color:#75715e">#1 SMP PREEMPT Mon Aug 1 14:25:10 CST 2022 aarch64&lt;/span>
+Firmware version: v2.5.11
+___ ___ .__________.__
+| | |____ |__&lt;span style="color:#ae81ff">\_&lt;/span> ____/__|
+| | / &lt;span style="color:#ae81ff">\|&lt;/span> &lt;span style="color:#f92672">||&lt;/span> __&lt;span style="color:#f92672">)&lt;/span> | | &lt;span style="color:#f92672">(&lt;/span>c&lt;span style="color:#f92672">)&lt;/span> 2010-2022
+| | | | &lt;span style="color:#ae81ff">\ &lt;/span> &lt;span style="color:#f92672">||&lt;/span> &lt;span style="color:#ae81ff">\ &lt;/span> | | Ubiquiti Inc.
+|______|___| /__&lt;span style="color:#f92672">||&lt;/span>__/ |__|
+|_/ https://www.ui.com
+Welcome to UniFi Dream Router!
+********************************* NOTICE **********************************
+* By logging in to, accessing, or using any Ubiquiti product, you are *
+* signifying that you have read our Terms of Service &lt;span style="color:#f92672">(&lt;/span>ToS&lt;span style="color:#f92672">)&lt;/span> and End User *
+* License Agreement &lt;span style="color:#f92672">(&lt;/span>EULA&lt;span style="color:#f92672">)&lt;/span>, understand their terms, and agree to be *
+* fully bound to them. The use of CLI &lt;span style="color:#f92672">(&lt;/span>Command Line Interface&lt;span style="color:#f92672">)&lt;/span> can *
+* potentially harm Ubiquiti devices and result in lost access to them and *
+* their data. By proceeding, you acknowledge that the use of CLI to *
+* modify device&lt;span style="color:#f92672">(&lt;/span>s&lt;span style="color:#f92672">)&lt;/span> outside of their normal operational scope, or in any *
+* manner inconsistent with the ToS or EULA, will permanently and *
+* irrevocably void any applicable warranty. *
+***************************************************************************
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>基本上就是問你 blah blah blah 你同不同意，當然是同意啦哪次不同意。&lt;/p>
+&lt;p>好了我們終於進去一點點了，接下來可以開始修復 Network app 無法正常啟動的狀況。&lt;/p>
+&lt;h4 id="修復-network-app-無法正常啟動的狀況">修復 Network app 無法正常啟動的狀況&lt;/h4>
+&lt;p>根據文章的教學，下指令 &lt;code>apt-get upgrade&lt;/code>，跑完後會出現下面的訊息：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">root@Dream-Router:~# apt-get upgrade
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+&lt;span style="color:#ae81ff">0&lt;/span> upgraded, &lt;span style="color:#ae81ff">0&lt;/span> newly installed, &lt;span style="color:#ae81ff">0&lt;/span> to remove and &lt;span style="color:#ae81ff">1&lt;/span> not upgraded.
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>回到 Console Management，在 Updates 頁面查看 Network app 的狀況，就發現他好了！狀態是 &lt;code>Up to Date&lt;/code>，嘗試打開 Network app，在電腦跟手機上都可以正常使用，太感動了&amp;hellip;&lt;/p>
+&lt;h3 id="unifi-console-格式化硬碟後protect-不能正常啟動淦">Unifi Console 格式化硬碟後，Protect 不能正常啟動，淦！&lt;/h3>
+&lt;p>修好了 Network 後，想說 Protect 是不是也順便修好了，但天不從人願QQ&lt;/p>
+&lt;p>於是繼續餵狗，關鍵字：&lt;code>unifi protect stopped working&lt;/code>&lt;/p>
+&lt;p>找到這則問題 &lt;a href="https://community.ui.com/questions/UniFi-Protect-stopped-working-after-uninitiated-update/22cfc8a7-f7d6-451d-a75a-c88ad2496fc3?page=1">UniFi Protect stopped working after uninitiated update&lt;/a>&lt;/p>
+&lt;p>一樣透過 SSH client 連進去 UDR，開始玩耍。&lt;/p>
+&lt;p>首先官方請提問者到 &lt;code>/srv/&lt;/code> 這個目錄撈 log 給他們，我也好奇的跑進去翻了一下XD&lt;/p>
+&lt;p>&lt;code>unifi&lt;/code> 這個目錄下的 log 應該是 Network app 的，裡面可以看到 AP 的 logs。&lt;/p>
+&lt;p>至於 Protect app 的 log 則是在 &lt;code>/srv/unifi-protect/logs&lt;/code> 這個目錄底下，裡面的 log 蠻值得挖出來看的，本質上跟 IoT 架構很類似，可以從 log 裡看出這些主從關係；另外有趣的是，我在 api.log 發現 &lt;code>/api/events&lt;/code> 這隻 api 的 payload 直接塞了一串 SQL query&amp;hellip;XD&lt;/p>
+&lt;p>&lt;img src="http://blog.evance.tw/images/unifi-udr-loss-apps-after-reformat-sd-card/2022-09-29-01-45-07.png" alt="api payload 有 SQL query">&lt;/p>
+&lt;p>扯遠了，繼續修。&lt;/p>
+&lt;p>接著官方建議提問者下這段指令 &lt;code>apt-get update; apt-get install unifi-protect -y&lt;/code> ，我執行後的訊息如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">root@Dream-Router:~# apt-get update; apt-get install unifi-protect -y
+Ign:1 http://deb.debian.org/debian stretch InRelease
+Get:2 http://security.debian.org stretch/updates InRelease &lt;span style="color:#f92672">[&lt;/span>59.1 kB&lt;span style="color:#f92672">]&lt;/span>
+Hit:3 http://deb.debian.org/debian stretch-updates InRelease
+Hit:4 http://deb.debian.org/debian stretch-backports InRelease
+Hit:5 http://deb.debian.org/debian stretch Release
+Hit:6 https://apt.artifacts.ui.com stretch InRelease
+Fetched 59.1 kB in 2s &lt;span style="color:#f92672">(&lt;/span>25.8 kB/s&lt;span style="color:#f92672">)&lt;/span>
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+unifi-protect is already the newest version &lt;span style="color:#f92672">(&lt;/span>2.2.2&lt;span style="color:#f92672">)&lt;/span>.
+&lt;span style="color:#ae81ff">0&lt;/span> upgraded, &lt;span style="color:#ae81ff">0&lt;/span> newly installed, &lt;span style="color:#ae81ff">0&lt;/span> to remove and &lt;span style="color:#ae81ff">1&lt;/span> not upgraded.
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>接著一樣回到 Console Management，在 Updates 頁面查看 Protect app 的狀況，發現他也好了~~&lt;/p>
+&lt;p>從電腦、手機上分別確認 Protect app 的狀況，也都如預期般正常運行，夭壽讚！&lt;/p>
+&lt;h2 id="summary">Summary&lt;/h2>
+&lt;p>沒事不要亂 format，Unifi Console 的 UI 扣 20 分，根本就誤導使用者。&lt;/p>
+&lt;p>SSH 用完後記得關掉，沒要用就把門關好，不要開比較好。&lt;/p>
+&lt;h2 id="refs">Refs&lt;/h2>
+&lt;p>[1]: 我的 OS 是 Windows 10，使用的終端機是 powershell 4.0@Windows Terminal，安裝的 SSH client 是 OpenSSH client。&lt;/p></description></item><item><title>Hello My Macbook Pro</title><link>http://blog.evance.tw/posts/hello-my-macbook-pro/</link><pubDate>Thu, 06 Jan 2022 22:48:30 +0800</pubDate><guid>http://blog.evance.tw/posts/hello-my-macbook-pro/</guid><description>
 &lt;h1 id="macbook">Macbook&lt;/h1>
 &lt;h2 id="shortcut">shortcut&lt;/h2>
 &lt;h3 id="common">common&lt;/h3>
